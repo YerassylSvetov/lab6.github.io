@@ -1,0 +1,26 @@
+CREATE TABLE students (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    surname TEXT NOT NULL,
+    phoonenumber INTEGER NOT NULL,
+    course TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    enrolled_date DATE NOT NULL
+);
+
+
+CREATE TABLE courses (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    instructor TEXT NOT NULL,
+    description TEXT
+    
+);
+
+CREATE TABLE enrollments (
+    id INTEGER PRIMARY KEY,
+    student_id INTEGER NOT NULL,
+    course_id INTEGER NOT NULL,
+    FOREIGN KEY(student_id) REFERENCES students(id),
+    FOREIGN KEY(course_id) REFERENCES courses(id)
+);
